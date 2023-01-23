@@ -19,9 +19,10 @@
         </div>
       </div>
       <div class="mb-3 row d-flex justify-content-center">
-        <button *ngIf="!showSpinner" [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">
+        <button *ngIf="!showSpinner" [disabled]="loginForm.invalid" type="submit" class="btn btn-primary mb-3">
           Login
         </button>
+        <button *ngIf="!showSpinner" (click)="loginWithGoogle()" class="btn btn-outline-warning" type="button">Login with Google</button>
         <div *ngIf="showSpinner" class="d-flex justify-content-center">
           <app-spinner></app-spinner>
         </div>

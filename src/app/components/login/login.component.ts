@@ -55,4 +55,23 @@ export class LoginComponent {
         this.showSpinner = false;
       });
   }
+
+  loginWithGoogle() {
+    this.showSpinner = true;
+    this.authService
+      .loginWithGoogle()
+      .then((_) => {
+        this.router.navigate(['/dashboard']);
+      })
+      .catch((_) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Ocurrio un error, inténtelo neuvamente.',
+        });
+      })
+      .finally(() => {
+        this.showSpinner = false;
+      });
+  }
 }
