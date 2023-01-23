@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styles: [],
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styles: []
 })
-export class HeaderComponent {
+export class NavbarComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   logout() {
     this.authService
       .logout()
       .then((_) => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/auth/login']);
       })
       .catch(console.error);
   }

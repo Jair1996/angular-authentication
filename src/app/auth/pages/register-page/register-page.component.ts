@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-
+import { AuthService } from 'src/app/core/services/auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
+  selector: 'app-register-page',
+  templateUrl: './register-page.component.html',
   styles: [],
 })
-export class RegisterComponent {
+export class RegisterPageComponent {
   showSpinner: boolean = false;
 
   registerForm: FormGroup = this.fb.group({
@@ -42,7 +41,13 @@ export class RegisterComponent {
     this.authService
       .register(this.registerForm.value)
       .then((_) => {
-        this.router.navigate(['/login']);
+        Swal.fire({
+          icon: 'success',
+          title: 'Good Job!',
+          text: 'Registrado correctamente, ahora inicia sesión!!!',
+        }).finally(() => {
+          this.router.navigate(['/auth/login']);
+        });
       })
       .catch((_) => {
         Swal.fire({
