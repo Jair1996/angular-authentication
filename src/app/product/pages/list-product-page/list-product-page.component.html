@@ -1,1 +1,28 @@
-<p>list-product-page works!</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Imágen</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let i = index">
+      <th class="align-middle" scope="row">{{ i + 1 }}</th>
+      <td class="align-middle">{{ product.name }}</td>
+      <td class="align-middle">{{ product.price | currency : 'S/. ' }}</td>
+      <td class="align-middle">
+        <img width="100" height="100" [src]="product.imgUrl" [alt]="product.name" />
+      </td>
+      <td class="align-middle text-center">
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <button type="button" class="btn btn-success">Ver</button>
+          <button type="button" class="btn btn-warning">Editar</button>
+          <button type="button" class="btn btn-danger">Eliminar</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
