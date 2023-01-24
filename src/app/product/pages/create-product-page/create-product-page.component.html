@@ -1,0 +1,23 @@
+<section class="row">
+  <div class="col-6">
+    <div>
+      <p class="fw-bold fs-4 text-center">Crear producto</p>
+    </div>
+    <form autocomplete="off" [formGroup]="createForm">
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Nombre</label>
+        <input type="text" formControlName="name" class="form-control" id="txtName" />
+      </div>
+      <div class="mb-3">
+        <label for="txtPrice" class="form-label">Precio</label>
+        <input type="number" formControlName="price" class="form-control" id="txtPrice" />
+      </div>
+      <div class="mb-3">
+        <label for="txtImg" class="form-label">Imágen URL</label>
+        <input type="text" formControlName="imgUrl" class="form-control" id="txtImg" />
+      </div>
+      <button [disabled]="createForm.invalid" type="submit" class="btn btn-primary">Crear</button>
+    </form>
+  </div>
+  <div class="col-6"></div>
+</section>

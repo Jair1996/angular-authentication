@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
-import { HomeComponent } from './pages/home/home.component';
+import { CreateProductPageComponent } from './pages/create-product-page/create-product-page.component';
+import { ListProductPageComponent } from './pages/list-product-page/list-product-page.component';
 
 const routes: Routes = [
   {
@@ -9,18 +10,17 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'home',
-        component: HomeComponent,
+        path: 'create',
+        component: CreateProductPageComponent,
       },
       {
-        path: 'product',
-        loadChildren: () =>
-          import('../product/product.module').then((m) => m.ProductModule),
+        path: 'list',
+        component: ListProductPageComponent,
       },
       {
         path: '**',
         pathMatch: 'full',
-        redirectTo: 'home',
+        redirectTo: 'list',
       },
     ],
   },
@@ -30,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DashboardRoutingModule {}
+export class ProductRoutingModule {}
