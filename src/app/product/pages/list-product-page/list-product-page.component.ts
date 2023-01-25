@@ -19,9 +19,7 @@ export class ListProductPageComponent implements OnInit {
     });
   }
 
-  seeMore() {}
-
-  edit() {}
+  seeMore(id: string) {}
 
   async delete(product: Product) {
     const result = await Swal.fire({
@@ -36,7 +34,7 @@ export class ListProductPageComponent implements OnInit {
     });
 
     if (result.isConfirmed) {
-      await this.productService.deleteProduct(product)
+      await this.productService.deleteProduct(product);
 
       Swal.fire({
         icon: 'success',

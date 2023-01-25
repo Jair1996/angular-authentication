@@ -7,18 +7,22 @@ import { CreateProductPageComponent } from './pages/create-product-page/create-p
 import { LayoutComponent } from './components/layout/layout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { UpdateProductPageComponent } from './pages/update-product-page/update-product-page.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     ListProductPageComponent,
     CreateProductPageComponent,
-    LayoutComponent
+    LayoutComponent,
+    UpdateProductPageComponent
   ],
   imports: [
     CommonModule,
     ProductRoutingModule,
     ReactiveFormsModule,
+    RouterModule,
     SharedModule
   ]
 })

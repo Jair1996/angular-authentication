@@ -44,9 +44,9 @@ export class RegisterPageComponent {
         Swal.fire({
           icon: 'success',
           title: 'Good Job!',
-          text: 'Registrado correctamente, ahora inicia sesión!!!',
+          text: 'Registrado correctamente, bienvenido!!!',
         }).finally(() => {
-          this.router.navigate(['/auth/login']);
+          this.router.navigate(['/dashboard/home']);
         });
       })
       .catch((_) => {
